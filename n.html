@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nigeria Poverty Alleviation Committee</title>
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #f3ca27;
+            --dark-primary: #d9b118;
+            --light-primary: #ffeea3;
             --secondary-color: #1a5276;
             --accent-color: #28b463;
-            --dark-color: #333333;
+            --text-color: #333333;
             --light-color: #ffffff;
+            --dark-color: #222222;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fffbee;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff9e6;
         }
         
         .dark body {
@@ -36,120 +42,319 @@
             padding: 0 20px;
         }
         
-        .header {
+        /* Header */
+        header {
             background-color: #ffffff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 15px 0;
         }
         
-        .dark .header {
-            background-color: #2d2d2d;
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
         
-        .hero-section {
-            background-color: var(--primary-color);
-            background-image: linear-gradient(135deg, #f3ca27 0%, #ffdf80 100%);
+        .logo-img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--light-primary) 100%);
             padding: 60px 0;
         }
         
-        .dark .hero-section {
-            background-image: linear-gradient(135deg, #8a7315 0%, #f3ca27 100%);
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        .section {
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .hero-features {
+            margin-bottom: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            background-color: #ffffff;
+            color: var(--accent-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .hero-image {
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+        
+        /* Programs Section */
+        .programs {
             padding: 60px 0;
-        }
-        
-        .section-white {
             background-color: #ffffff;
         }
         
-        .dark .section-white {
-            background-color: #2d2d2d;
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
         }
         
-        .section-gray {
-            background-color: #f5f5f5;
-        }
-        
-        .dark .section-gray {
-            background-color: #1e1e1e;
-        }
-        
-        .section-primary {
-            background-color: var(--primary-color);
-            color: #ffffff;
-        }
-        
-        .footer {
-            background-color: var(--secondary-color);
-            color: #ffffff;
-            padding: 40px 0 20px;
-        }
-        
-        .dark .footer {
-            background-color: #1a1a1a;
-        }
-        
-        .card {
+        .program-card {
             background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 40px;
             border-left: 5px solid var(--primary-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .dark .card {
-            background-color: #2d2d2d;
-        }
-        
-        .card:hover {
+        .program-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
+        .program-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .program-description {
+            margin-bottom: 20px;
+        }
+        
+        .program-features {
+            margin-bottom: 25px;
+        }
+        
+        .program-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: #f8f8f8;
+            padding: 60px 0;
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .stat-description {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-info i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+        
+        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-weight: bold;
+            font-size: 1rem;
             text-align: center;
             cursor: pointer;
+            border: none;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .btn-primary {
             background-color: var(--primary-color);
             color: #ffffff;
+            box-shadow: 0 4px 10px rgba(243, 202, 39, 0.3);
         }
         
         .btn-primary:hover {
-            background-color: #e0b920;
-            transform: translateY(-2px);
+            background-color: var(--dark-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(243, 202, 39, 0.4);
         }
         
         .btn-accent {
             background-color: var(--accent-color);
             color: #ffffff;
+            box-shadow: 0 4px 10px rgba(40, 180, 99, 0.3);
         }
         
         .btn-accent:hover {
             background-color: #219955;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(40, 180, 99, 0.4);
         }
         
         .btn-white {
             background-color: #ffffff;
             color: var(--secondary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         .btn-white:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px);
+            background-color: #f5f5f5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
         
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -162,7 +367,7 @@
             border-radius: 50%;
             text-align: center;
             font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -193,87 +398,72 @@
             border: 2px solid #ffffff;
         }
         
-        .img-fluid {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .flex-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-        }
-        
-        .flex-item {
-            padding: 0 15px;
-            width: 100%;
-        }
-        
-        .stat-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-        
-        .dark .stat-card {
-            background-color: #2d2d2d;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-value {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
+        /* Utilities */
         .divider {
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            margin: 40px auto;
+            margin: 30px auto;
             width: 80%;
         }
         
         /* Media Queries */
         @media (min-width: 768px) {
-            .flex-item {
-                width: 50%;
+            .hero-container {
+                flex-direction: row;
+                align-items: center;
             }
             
-            .stats-flex-item {
-                width: 33.333%;
+            .hero-content {
+                flex: 1;
+            }
+            
+            .hero-image-container {
+                flex: 1;
+            }
+            
+            .program-container {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .program-content {
+                flex: 1;
+            }
+            
+            .program-image {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            
+            .stats-container {
+                flex-direction: row;
+            }
+            
+            .stat-card {
+                flex: 1;
+            }
+            
+            .footer-container {
+                flex-direction: row;
+            }
+            
+            .footer-section {
+                flex: 1;
+            }
+            
+            .reverse-row {
+                flex-direction: row-reverse;
             }
         }
     </style>
+</head>
+<body>
     <script>
+        function opensite() {
+            window.open('https://line.me', '_blank');
+        }
+        
         // Check for dark mode preference
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
@@ -286,14 +476,8 @@
                 document.documentElement.classList.remove('dark');
             }
         });
-        
-        function opensite() {
-            window.open('https://line.me', '_blank');
-        }
     </script>
-</head>
 
-<body>
     <!-- WhatsApp floating button -->
     <div class="whatsapp-float" onclick="opensite()">
         <i class="fab fa-whatsapp"></i>
@@ -301,95 +485,93 @@
     </div>
 
     <!-- Header -->
-    <header class="header">
+    <header>
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center;">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/2cc45110d6938cf666429f4b0f9b051e733c685d37bc81d2ceb95b39ff2b02d4?w=712&h=706" alt="Nigerian Coat of Arms" style="height: 60px; margin-right: 15px;">
-                    <div>
-                        <h1 style="font-size: 1.5rem; font-weight: bold; color: #1a5276; margin: 0;">Federal Ministry of Special Duties</h1>
-                        <p style="color: #666; margin: 0;">Poverty Alleviation Committee</p>
+            <div class="header-container">
+                <div class="logo-container">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/2cc45110d6938cf666429f4b0f9b051e733c685d37bc81d2ceb95b39ff2b02d4?w=712&h=706" alt="Nigerian Coat of Arms" class="logo-img">
+                    <div class="logo-text">
+                        <h1>Federal Ministry of Special Duties</h1>
+                        <p>Poverty Alleviation Committee</p>
                     </div>
                 </div>
-                <div class="d-none d-md-block">
-                    <button onclick="opensite()" class="btn btn-primary">Contact Us</button>
-                </div>
+                <button onclick="opensite()" class="btn btn-primary">Contact Us</button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero">
         <div class="container">
-            <div class="flex-container">
-                <div class="flex-item" style="margin-bottom: 30px;">
-                    <h2 style="font-size: 2.5rem; font-weight: bold; color: #1a5276; margin-bottom: 15px;">Building a Prosperous Nigeria Together</h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 25px;">Empowering communities, transforming lives, creating sustainable futures.</p>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Building a Prosperous Nigeria Together</h2>
+                    <p class="hero-subtitle">Empowering communities, transforming lives, creating sustainable futures.</p>
                     
-                    <div style="margin-bottom: 20px;">
+                    <div class="hero-features">
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check" style="font-size: 12px;"></i>
+                                <i class="fas fa-check"></i>
                             </div>
                             <p>Eliminating intergenerational poverty</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check" style="font-size: 12px;"></i>
+                                <i class="fas fa-check"></i>
                             </div>
                             <p>Empowering vulnerable groups</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check" style="font-size: 12px;"></i>
+                                <i class="fas fa-check"></i>
                             </div>
                             <p>Creating inclusive growth communities</p>
                         </div>
                     </div>
                     
-                    <button onclick="opensite()" class="btn btn-accent" style="padding: 12px 25px; font-size: 1.1rem;">Join Our Mission</button>
+                    <button onclick="opensite()" class="btn btn-accent">Join Our Mission</button>
                 </div>
-                <div class="flex-item">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/341d9c8e8d5383b583792fd46a598e2972c27fdce426fcc66c92e8bdac70131c?w=1224&h=816" alt="Nigerian Community" class="img-fluid">
+                <div class="hero-image-container">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/341d9c8e8d5383b583792fd46a598e2972c27fdce426fcc66c92e8bdac70131c?w=1224&h=816" alt="Nigerian Community" class="hero-image">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section class="section section-white">
+    <section class="programs">
         <div class="container">
-            <h2 style="font-size: 2rem; font-weight: bold; text-align: center; color: #1a5276; margin-bottom: 50px;">Our Programs</h2>
+            <h2 class="section-title">Our Programs</h2>
             
             <!-- Hope Home Program -->
-            <div class="flex-container" style="margin-bottom: 50px;">
-                <div class="flex-item">
-                    <div class="card">
-                        <h3 style="font-size: 1.5rem; font-weight: bold; color: #1a5276; margin-bottom: 15px;">Hope Home Initiative</h3>
-                        <p style="margin-bottom: 20px;">Providing essential support to uplift families from poverty through comprehensive assistance programs.</p>
+            <div class="program-container">
+                <div class="program-content">
+                    <div class="program-card">
+                        <h3 class="program-title">Hope Home Initiative</h3>
+                        <p class="program-description">Providing essential support to uplift families from poverty through comprehensive assistance programs.</p>
                         
-                        <div style="margin-bottom: 20px;">
+                        <div class="program-features">
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-hand-holding-usd" style="font-size: 12px;"></i>
+                                    <i class="fas fa-hand-holding-usd"></i>
                                 </div>
                                 <p>Monthly living allowance for poor families (including food and education subsidies)</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-home" style="font-size: 12px;"></i>
+                                    <i class="fas fa-home"></i>
                                 </div>
                                 <p>Housing renovation special fund</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-tint" style="font-size: 12px;"></i>
+                                    <i class="fas fa-tint"></i>
                                 </div>
                                 <p>Clean drinking water project coverage</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-briefcase" style="font-size: 12px;"></i>
+                                    <i class="fas fa-briefcase"></i>
                                 </div>
                                 <p>Vocational skills connection services</p>
                             </div>
@@ -398,28 +580,28 @@
                         <button onclick="opensite()" class="btn btn-primary">Learn More</button>
                     </div>
                 </div>
-                <div class="flex-item">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/91e7e407d439050f700b143c855c4f98ad16fbbe569b3ee714bddf7df69b4213?w=1224&h=816" alt="Hope Home Initiative" class="img-fluid">
+                <div class="program-image">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/91e7e407d439050f700b143c855c4f98ad16fbbe569b3ee714bddf7df69b4213?w=1224&h=816" alt="Hope Home Initiative">
                 </div>
             </div>
             
             <!-- Women Empowerment Program -->
-            <div class="flex-container" style="margin-bottom: 50px;">
-                <div class="flex-item order-md-2">
-                    <div class="card">
-                        <h3 style="font-size: 1.5rem; font-weight: bold; color: #1a5276; margin-bottom: 15px;">Women Empowerment Plan</h3>
-                        <p style="margin-bottom: 20px;">Enabling women to achieve financial independence through skills development and health support.</p>
+            <div class="program-container reverse-row">
+                <div class="program-content">
+                    <div class="program-card">
+                        <h3 class="program-title">Women Empowerment Plan</h3>
+                        <p class="program-description">Enabling women to achieve financial independence through skills development and health support.</p>
                         
-                        <div style="margin-bottom: 20px;">
+                        <div class="program-features">
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-chalkboard-teacher" style="font-size: 12px;"></i>
+                                    <i class="fas fa-chalkboard-teacher"></i>
                                 </div>
                                 <p>Vocational skills training (textiles, e-commerce, handicrafts)</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-baby" style="font-size: 12px;"></i>
+                                    <i class="fas fa-baby"></i>
                                 </div>
                                 <p>Maternal and child health support package</p>
                             </div>
@@ -428,34 +610,34 @@
                         <button onclick="opensite()" class="btn btn-primary">Learn More</button>
                     </div>
                 </div>
-                <div class="flex-item order-md-1">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/eb3f04f41e8e01ac154b03c32224638ce5ea4119b7fa3cedac254a4f7266a40c?w=1224&h=766" alt="Women Empowerment" class="img-fluid">
+                <div class="program-image">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/eb3f04f41e8e01ac154b03c32224638ce5ea4119b7fa3cedac254a4f7266a40c?w=1224&h=766" alt="Women Empowerment">
                 </div>
             </div>
             
             <!-- Special Care Program -->
-            <div class="flex-container">
-                <div class="flex-item">
-                    <div class="card">
-                        <h3 style="font-size: 1.5rem; font-weight: bold; color: #1a5276; margin-bottom: 15px;">Special Care Program</h3>
-                        <p style="margin-bottom: 20px;">Focused support for vulnerable populations with specialized needs and development opportunities.</p>
+            <div class="program-container">
+                <div class="program-content">
+                    <div class="program-card">
+                        <h3 class="program-title">Special Care Program</h3>
+                        <p class="program-description">Focused support for vulnerable populations with specialized needs and development opportunities.</p>
                         
-                        <div style="margin-bottom: 20px;">
+                        <div class="program-features">
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-wheelchair" style="font-size: 12px;"></i>
+                                    <i class="fas fa-wheelchair"></i>
                                 </div>
                                 <p>Employment training for persons with disabilities</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-apple-alt" style="font-size: 12px;"></i>
+                                    <i class="fas fa-apple-alt"></i>
                                 </div>
                                 <p>Nutritional support for school children</p>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">
-                                    <i class="fas fa-graduation-cap" style="font-size: 12px;"></i>
+                                    <i class="fas fa-graduation-cap"></i>
                                 </div>
                                 <p>Youth skills scholarship program</p>
                             </div>
@@ -464,8 +646,8 @@
                         <button onclick="opensite()" class="btn btn-primary">Learn More</button>
                     </div>
                 </div>
-                <div class="flex-item">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/9b78140034fbb7d79ee42d2e1efe27911e399f739844b94c4da4f12ee7c263a1?w=1224&h=816" alt="Special Care Program" class="img-fluid">
+                <div class="program-image">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/9b78140034fbb7d79ee42d2e1efe27911e399f739844b94c4da4f12ee7c263a1?w=1224&h=816" alt="Special Care Program">
                 </div>
             </div>
         </div>
@@ -474,109 +656,109 @@
     <div class="divider"></div>
 
     <!-- Stats Section -->
-    <section class="section section-gray">
+    <section class="stats">
         <div class="container">
-            <h2 style="font-size: 2rem; font-weight: bold; text-align: center; color: #1a5276; margin-bottom: 10px;">Witnessing Change Together</h2>
+            <h2 class="section-title">Witnessing Change Together</h2>
             <p style="text-align: center; color: #666; margin-bottom: 40px;">Our impact in numbers</p>
             
-            <div class="flex-container">
-                <div class="flex-item stats-flex-item" style="margin-bottom: 20px;">
-                    <div class="stat-card">
-                        <div class="stat-value">61,100+</div>
-                        <p>Families received production tool kits (including agricultural machinery, quality seeds, technical manuals)</p>
-                    </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value">61,100+</div>
+                    <p class="stat-description">Families received production tool kits (including agricultural machinery, quality seeds, technical manuals)</p>
                 </div>
                 
-                <div class="flex-item stats-flex-item" style="margin-bottom: 20px;">
-                    <div class="stat-card">
-                        <div class="stat-value">82.7%-93.4%</div>
-                        <p>Women achieved sustainable income through entrepreneurship programs</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value">82.7%-93.4%</div>
+                    <p class="stat-description">Women achieved sustainable income through entrepreneurship programs</p>
                 </div>
                 
-                <div class="flex-item stats-flex-item" style="margin-bottom: 20px;">
-                    <div class="stat-card">
-                        <div class="stat-value">27</div>
-                        <p>Communities have entered sustainable development stages</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value">27</div>
+                    <p class="stat-description">Communities have entered sustainable development stages</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="section section-primary">
-        <div class="container" style="text-align: center;">
-            <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">WhatsApp Green Channel</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Get immediate assistance and information about our programs</p>
-            <button onclick="opensite()" class="btn btn-white" style="padding: 12px 30px; font-size: 1.1rem;">Contact via WhatsApp</button>
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">WhatsApp Green Channel</h2>
+            <p class="cta-description">Get immediate assistance and information about our programs</p>
+            <button onclick="opensite()" class="btn btn-white">Contact via WhatsApp</button>
         </div>
     </section>
 
     <!-- Business Meeting Section -->
-    <section class="section section-white">
+    <section class="programs">
         <div class="container">
-            <div class="flex-container">
-                <div class="flex-item" style="margin-bottom: 30px;">
-                    <h2 style="font-size: 2rem; font-weight: bold; color: #1a5276; margin-bottom: 15px;">Professional Support</h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Our team of professionals is ready to guide you through the entire process and ensure you receive the support you need.</p>
+            <div class="program-container">
+                <div class="program-content">
+                    <h2 style="font-size: 2rem; font-weight: bold; color: var(--secondary-color); margin-bottom: 20px;">Professional Support</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px;">Our team of professionals is ready to guide you through the entire process and ensure you receive the support you need.</p>
                     
-                    <div style="margin-bottom: 25px;">
+                    <div class="program-features">
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check-circle" style="font-size: 12px;"></i>
+                                <i class="fas fa-check-circle"></i>
                             </div>
                             <p>Personalized consultation</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check-circle" style="font-size: 12px;"></i>
+                                <i class="fas fa-check-circle"></i>
                             </div>
                             <p>Transparent application process</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-check-circle" style="font-size: 12px;"></i>
+                                <i class="fas fa-check-circle"></i>
                             </div>
                             <p>Continuous follow-up support</p>
                         </div>
                     </div>
                     
-                    <button onclick="opensite()" class="btn btn-accent" style="padding: 12px 25px;">Schedule a Consultation</button>
+                    <button onclick="opensite()" class="btn btn-accent" style="margin-top: 20px;">Schedule a Consultation</button>
                 </div>
-                <div class="flex-item">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/2cc45110d6938cf666429f4b0f9b051e733c685d37bc81d2ceb95b39ff2b02d4?w=712&h=706" alt="Professional Meeting" class="img-fluid">
+                <div class="program-image">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/91e7e407d439050f700b143c855c4f98ad16fbbe569b3ee714bddf7df69b4213?w=1224&h=816" alt="Professional Meeting">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="flex-container">
-                <div class="flex-item" style="margin-bottom: 30px;">
-                    <h3 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 15px;">Nigeria Poverty Alleviation Committee</h3>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3 class="footer-title">Nigeria Poverty Alleviation Committee</h3>
                     <p style="margin-bottom: 10px;">Ensuring people eat well, sleep well, and live with dignity.</p>
                     <p>Solving poverty is our goal.</p>
                 </div>
                 
-                <div class="flex-item" style="margin-bottom: 30px;">
-                    <h3 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 15px;">Contact Us</h3>
-                    <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="margin-right: 10px;"></i> nirqwewna923@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Radio House, Herbert Macaulay Way (South) Area 8, PMB 242, Garki - Abuja</p>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="footer-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>nirqwewna923@gmail.com</p>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Radio House, Herbert Macaulay Way (South) Area 8, PMB 242, Garki - Abuja</p>
+                    </div>
                 </div>
                 
-                <div class="flex-item">
-                    <h3 style="font-size: 1.3rem; font-weight: bold; margin-bottom: 15px;">Connect With Us</h3>
-                    <button onclick="opensite()" class="btn" style="background-color: #25D366; color: white; width: 100%; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                <div class="footer-section">
+                    <h3 class="footer-title">Connect With Us</h3>
+                    <button onclick="opensite()" class="btn btn-block" style="background-color: #25D366; color: white; margin-bottom: 15px;">
                         <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> WhatsApp
                     </button>
-                    <button onclick="opensite()" class="btn btn-primary" style="width: 100%;">Apply Now</button>
+                    <button onclick="opensite()" class="btn btn-primary btn-block">Apply Now</button>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 30px; padding-top: 20px; text-align: center;">
+            <div class="footer-bottom">
                 <p>&copy; 2023 Nigeria Poverty Alleviation Committee. Working together for a better Nigeria tomorrow.</p>
             </div>
         </div>
