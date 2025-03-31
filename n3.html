@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigeria Poverty Alleviation Committee</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f3ca27',
+                        secondary: '#1a5276',
+                        accent: '#28b463',
+                        dark: '#333333',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function opensite() {
+            window.open('https://line.me', '_blank');
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fffbee;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .dark body {
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+        }
+        
+        .hero-section {
+            background-color: #f3ca27;
+            background-image: linear-gradient(135deg, #f3ca27 0%, #ffdf80 100%);
+        }
+        
+        .dark .hero-section {
+            background-image: linear-gradient(135deg, #8a7315 0%, #f3ca27 100%);
+        }
+        
+        .stat-card {
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .dark .stat-card {
+            background-color: #2d2d2d;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-card {
+            background-color: white;
+            border-left: 5px solid #f3ca27;
+            transition: all 0.3s ease;
+        }
+        
+        .dark .program-card {
+            background-color: #2d2d2d;
+        }
+        
+        .program-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cta-button {
+            background-color: #28b463;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #219955;
+            transform: scale(1.05);
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #f3ca27, transparent);
+            margin: 2rem auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <!-- WhatsApp floating button -->
+    <div class="whatsapp-float">
+        <div class="relative">
+            <button onclick="opensite()" class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+                <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+            </button>
+            <span class="badge">1</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://pfst.cf2.poecdn.net/base/image/2cc45110d6938cf666429f4b0f9b051e733c685d37bc81d2ceb95b39ff2b02d4?w=712&h=706" alt="Nigerian Coat of Arms" class="h-14 mr-3">
+                <div>
+                    <h1 class="text-xl font-bold text-secondary dark:text-primary md:text-2xl">Federal Ministry of Special Duties</h1>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Poverty Alleviation Committee</p>
+                </div>
+            </div>
+            <button onclick="opensite()" class="cta-button text-white font-bold py-2 px-4 rounded-lg hidden md:block">
+                Contact Us
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-5xl font-bold text-secondary dark:text-white mb-4">Building a Prosperous Nigeria Together</h2>
+                    <p class="text-lg md:text-xl text-gray-800 dark:text-gray-200 mb-6">Empowering communities, transforming lives, creating sustainable futures.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-white dark:bg-gray-800 p-2 rounded-full mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <p class="text-gray-800 dark:text-gray-200">Eliminating intergenerational poverty</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-white dark:bg-gray-800 p-2 rounded-full mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <p class="text-gray-800 dark:text-gray-200">Empowering vulnerable groups</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-white dark:bg-gray-800 p-2 rounded-full mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <p class="text-gray-800 dark:text-gray-200">Creating inclusive growth communities</p>
+                        </div>
+                    </div>
+                    <button onclick="opensite()" class="cta-button text-white font-bold py-3 px-6 rounded-lg mt-8">
+                        Join Our Mission
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/341d9c8e8d5383b583792fd46a598e2972c27fdce426fcc66c92e8bdac70131c?w=1224&h=816" alt="Nigerian Community" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-secondary dark:text-primary mb-12">Our Programs</h2>
+            
+            <!-- Hope Home Program -->
+            <div class="flex flex-col md:flex-row items-center mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="program-card p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary dark:text-primary mb-4">Hope Home Initiative</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">Providing essential support to uplift families from poverty through comprehensive assistance programs.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-hand-holding-usd text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Monthly living allowance for poor families (including food and education subsidies)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-home text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Housing renovation special fund</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tint text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Clean drinking water project coverage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-briefcase text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Vocational skills connection services</span>
+                            </li>
+                        </ul>
+                        <button onclick="opensite()" class="bg-primary hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg mt-6 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/91e7e407d439050f700b143c855c4f98ad16fbbe569b3ee714bddf7df69b4213?w=1224&h=816" alt="Hope Home Initiative" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+            
+            <!-- Women Empowerment Program -->
+            <div class="flex flex-col md:flex-row-reverse items-center mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pl-8">
+                    <div class="program-card p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary dark:text-primary mb-4">Women Empowerment Plan</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">Enabling women to achieve financial independence through skills development and health support.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-chalkboard-teacher text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Vocational skills training (textiles, e-commerce, handicrafts)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-baby text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Maternal and child health support package</span>
+                            </li>
+                        </ul>
+                        <button onclick="opensite()" class="bg-primary hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg mt-6 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/eb3f04f41e8e01ac154b03c32224638ce5ea4119b7fa3cedac254a4f7266a40c?w=1224&h=766" alt="Women Empowerment" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+            
+            <!-- Special Care Program -->
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="program-card p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary dark:text-primary mb-4">Special Care Program</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">Focused support for vulnerable populations with specialized needs and development opportunities.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-wheelchair text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Employment training for persons with disabilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-apple-alt text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Nutritional support for school children</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Youth skills scholarship program</span>
+                            </li>
+                        </ul>
+                        <button onclick="opensite()" class="bg-primary hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg mt-6 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/9b78140034fbb7d79ee42d2e1efe27911e399f739844b94c4da4f12ee7c263a1?w=1224&h=816" alt="Special Care Program" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-secondary dark:text-primary mb-2">Witnessing Change Together</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Our impact in numbers</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-3">61,100+</div>
+                    <p class="text-gray-700 dark:text-gray-300">Families received production tool kits (including agricultural machinery, quality seeds, technical manuals)</p>
+                </div>
+                
+                <div class="stat-card p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-3">82.7%-93.4%</div>
+                    <p class="text-gray-700 dark:text-gray-300">Women achieved sustainable income through entrepreneurship programs</p>
+                </div>
+                
+                <div class="stat-card p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-3">27</div>
+                    <p class="text-gray-700 dark:text-gray-300">Communities have entered sustainable development stages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">WhatsApp Green Channel</h2>
+            <p class="text-xl text-white mb-8">Get immediate assistance and information about our programs</p>
+            <button onclick="opensite()" class="bg-white hover:bg-gray-100 text-secondary font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg transform hover:scale-105">
+                Contact via WhatsApp
+            </button>
+        </div>
+    </section>
+
+    <!-- Business Meeting Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold text-secondary dark:text-primary mb-4">Professional Support</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">Our team of professionals is ready to guide you through the entire process and ensure you receive the support you need.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Personalized consultation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Transparent application process</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Continuous follow-up support</span>
+                        </li>
+                    </ul>
+                    <button onclick="opensite()" class="cta-button text-white font-bold py-3 px-6 rounded-lg">
+                        Schedule a Consultation
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/2cc45110d6938cf666429f4b0f9b051e733c685d37bc81d2ceb95b39ff2b02d4?w=712&h=706" alt="Professional Meeting" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary dark:bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Nigeria Poverty Alleviation Committee</h3>
+                    <p class="mb-2">Ensuring people eat well, sleep well, and live with dignity.</p>
+                    <p>Solving poverty is our goal.</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i> nirqwewna923@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Radio House, Herbert Macaulay Way (South) Area 8, PMB 242, Garki - Abuja</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <button onclick="opensite()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mb-3 w-full flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </button>
+                    <button onclick="opensite()" class="bg-primary hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg w-full">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p>&copy; 2023 Nigeria Poverty Alleviation Committee. Working together for a better Nigeria tomorrow.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
